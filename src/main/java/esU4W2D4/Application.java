@@ -6,10 +6,7 @@ import esU4W2D4.entities.Order;
 import esU4W2D4.entities.Product;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static esU4W2D4.entities.Suppliers.customerSupplier;
@@ -73,7 +70,8 @@ public class Application {
 
             //ESERCIZIO3
             System.out.println("\n");
-            
+            List<Product> prodottiCostosi = prodottiDisponibili.stream().sorted(Comparator.comparing(Product::getPrice).reversed()).toList();
+            prodottiCostosi.forEach(System.out::println);
         }
     }
 
