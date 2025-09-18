@@ -84,6 +84,8 @@ public class Application {
 
             //ESERCIZIO5
             System.out.println("\n");
+            Map<Category , Double> mapCategoriaTotali = prodottiDisponibili.stream().collect(Collectors.groupingBy(Product::getCategory , Collectors.summingDouble(Product::getPrice)));
+            mapCategoriaTotali.forEach((categoria, totale) -> System.out.println(categoria + " somma prezzi totali: " + totale));
         }
     }
 
