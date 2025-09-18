@@ -72,6 +72,18 @@ public class Application {
             System.out.println("\n");
             List<Product> prodottiCostosi = prodottiDisponibili.stream().sorted(Comparator.comparing(Product::getPrice).reversed()).toList();
             prodottiCostosi.forEach(System.out::println);
+
+            //ESERCIZIO4
+            System.out.println("\n");
+            OptionalDouble mediaTotali = ordiniComplessivi.stream().mapToDouble(
+                    order -> order.getProducts().stream()
+                            .mapToDouble(Product::getPrice)
+                            .sum())
+                    .average();
+            System.out.println("La media degli importi su ordini complessivi: " + mediaTotali.getAsDouble());
+
+            //ESERCIZIO5
+            System.out.println("\n");
         }
     }
 
